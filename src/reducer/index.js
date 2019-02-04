@@ -1,9 +1,9 @@
 import { compose } from 'redux';
 
-import UserReducer from './user';
+import user from './user';
 
 const reducers = compose({
-    UserReducer
+    user
 });
 
 export default reducers;

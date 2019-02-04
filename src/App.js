@@ -3,9 +3,12 @@ import logo from './logo.svg';
 import './App.css';
 import { Provider } from 'react-redux'
 import store from './store';
+import Button from './components/button'
 
 class App extends Component {
   render() {
+    console.log('user', this.props.status)
+
     return (
       <Provider store={store}>
         <div className="App">
@@ -22,8 +25,8 @@ class App extends Component {
             >
               Learn React
           </a>
+          <Button />
           </header>
-          <button onClick={() => console.log('action')}>teste</button>
         </div>
       </Provider>
     );

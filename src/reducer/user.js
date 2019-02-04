@@ -1,20 +1,24 @@
 
-export default function UserReducer(state = {}, action) {
+const initialState = {
+    status: 'teste'
+}
+
+export default function user(state = initialState, action) {
     switch (action.type) {
         case 'USER_WAITING':
             return {
                 ...state,
-                userStats: 'waiting'
+                status: 'waiting'
             }
         case 'USER_SUCCESS':
             return {
                 ...state,
-                userStats: 'success'
+                status: 'success'
             }
         case 'USER_FAIL':
             return {
                 ...state,
-                userStats: 'fail'
+                status: 'fail'
             }
         default:
             return state
