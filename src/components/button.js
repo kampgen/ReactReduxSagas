@@ -7,19 +7,14 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    getUser: () => {
-        console.log('teste')
-        dispatch(gettingUser())
-    }
+    getUser: () => dispatch(gettingUser())
 })
 
 class Button extends Component {
     render() {
         console.log('status', this.props.status)
         return (
-            <div>
-                <button onClick={() => this.props.getUser}>Action</button>
-            </div>
+            <button onClick={() => this.props.getUser()}>Action</button>
         )
     }
 }
