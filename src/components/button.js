@@ -1,22 +1,35 @@
-import React, { Component } from 'react'
-import { gettingUser, gettingUserSuccess, gettingUserFail } from '../actions/userActions'
-import { connect } from 'react-redux'
+import React from 'react';
+import { gettingUser, gettingUserSuccess, gettingUserFail } from '../actions/userActions';
+import { connect } from 'react-redux';
+import './button.css';
 
 const mapStateToProps = state => ({
-    status: state.user.status
-})
+
+});
 
 const mapDispatchToProps = dispatch => ({
-    getUser: () => dispatch(gettingUser())
-})
+    getUser: () => dispatch(gettingUser()),
+    getUserSuc: () => dispatch(gettingUserSuccess()),
+    getUserFail: () => dispatch(gettingUserFail())
+});
 
-class Button extends Component {
-    render() {
-        console.log('status', this.props.status)
-        return (
-            <button onClick={() => this.props.getUser()}>Action</button>
-        )
+const Button = props => {
+    let info = {}
+    switch (props.type) {
+        case 'success':
+            info = { action: props.getUserSuc, title: 'success' };
+            break;
+        case 'failure':
+            info = { action: props.getUserFail, title: 'failure' };
+            break;
+        default:
+            info = { action: props.getUser, title: 'get' };
+            break;
     }
+
+    return (
+        <button className='button' onClick={() => info.action()}>{ info.title.toUpperCase() }</button>
+    )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Button)
+export default connect(mapStateToProps, mapDispatchToProps)(Button);

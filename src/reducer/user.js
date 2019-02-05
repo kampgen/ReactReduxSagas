@@ -1,6 +1,7 @@
 
 const initialState = {
-    status: 'teste'
+    status: 'teste',
+    info: []
 }
 
 export default function user(state = initialState, action) {
@@ -13,12 +14,19 @@ export default function user(state = initialState, action) {
         case 'USER_SUCCESS':
             return {
                 ...state,
-                status: 'success'
+                status: 'success',
+                info: [
+                    ...state.info,
+                    {
+                        key: Math.random(),
+                        ...action.payload.data
+                    }
+                ]
             }
-        case 'USER_FAIL':
+        case 'USER_FAILURE':
             return {
                 ...state,
-                status: 'fail'
+                status: 'failure'
             }
         default:
             return state
