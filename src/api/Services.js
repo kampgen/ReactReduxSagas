@@ -13,3 +13,5 @@ export default class Services {
         });
     }
 }
+
+// https://api.graph.cool/simple/v1/cjrrvm4yh3fj101725hecottw

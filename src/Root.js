@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import { Provider } from 'react-redux'
 import store from './store';
-import App from './App'
+import App from './App';
+import { ApolloProvider } from 'react-apollo';
+import apolloClient from './services/apollo';
 
 class Root extends Component {
   render() {
     return (
-      <Provider store={store}>
+      <ApolloProvider client={apolloClient}>
+        <Provider store={store}>
           <App />
-      </Provider>
+        </Provider>
+      </ApolloProvider>
     );
   }
 }
