@@ -13,23 +13,6 @@ const mapDispatchToProps = dispatch => ({
     getUserFail: () => dispatch(gettingUserFail())
 });
 
-const Button = props => {
-    let info = {}
-    switch (props.type) {
-        case 'success':
-            info = { action: props.getUserSuc, title: 'success' };
-            break;
-        case 'failure':
-            info = { action: props.getUserFail, title: 'failure' };
-            break;
-        default:
-            info = { action: props.getUser, title: 'get' };
-            break;
-    }
-
-    return (
-        <button className='button' onClick={() => info.action()}>{ info.title.toUpperCase() }</button>
-    )
-}
+const Button = props => <button className='button' onClick={() => props.getUser()}>Adicionar usuário</button>
 
 export default connect(mapStateToProps, mapDispatchToProps)(Button);

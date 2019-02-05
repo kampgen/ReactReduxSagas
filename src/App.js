@@ -12,16 +12,15 @@ class App extends Component {
 
     render() {
         console.log(this.props.status)
-        console.log('user', this.props.info)
         return (
             <div className='container'>
                 <Button />
                 {
-                    this.props.info && this.props.info.map(info => {
-                        return <div key={info.key}>
-                            <p className='text'>Nome: {info.name}</p>
-                            <p className='text'>Idade: {info.age}</p>
-                            <p className='text'>Repositório: {info.repository}</p>
+                    this.props.info && this.props.info.map(item => {
+                        return <div key={item.key} className='item-container'>
+                            <p className='text'>Nome: {item.name}</p>
+                            <p className='text'>Idade: {item.age}</p>
+                            <p className='text'>Repositório: <a href={item.repository}>{item.repository}</a></p>
                         </div>
                     })
                 }
