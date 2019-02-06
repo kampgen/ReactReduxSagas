@@ -1,18 +1,18 @@
-import Api from '../api/Services'
-import { takeEvery, call, delay, put } from '@redux-saga/core/effects';
+import addTodoItem from '../api/Services';
+import { takeEvery, call, put } from '@redux-saga/core/effects';
 
-function* getUser() {
+function* addTodo(item) {
     try {
-        let user = yield call(Api.getUser);
-        yield put({ type: 'USER_SUCCESS', payload: { data: user } });
+        //yield call(addTodoItem(item.payload.item));
+        yield put({ type: 'ADD_TODO_SUCCESS' });
     } catch (err) {
-        console.log('erro', err)
-        yield put({ type: 'USER_FAILURE' });
+        console.log('erro', err);
+        yield put({ type: 'ADD_TODO_FAILURE' });
     }
 }
 
 function* rootSaga() {
-    yield takeEvery('USER_WAITING', getUser);
+    yield takeEvery('ADD_TODO', addTodo);
 }
 
 export default rootSaga;

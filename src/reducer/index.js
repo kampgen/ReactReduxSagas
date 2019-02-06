@@ -1,9 +1,9 @@
 import { compose } from 'redux';
 
-import user from './user';
+import todo from './todo';
 
 const reducers = compose({
-    user
+    todo
 });
 
 export default reducers;

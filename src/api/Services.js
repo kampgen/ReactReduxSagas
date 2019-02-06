@@ -1,17 +1,30 @@
-import React from 'react'
 
-export default class Services {
-    static getUser() {
-        return new Promise(resolve => {
-            setTimeout(() => {
-                resolve({
-                    name: 'Teste',
-                    age: 24,
-                    repository: 'http://github.com/kampgen'
-                });
-            }, 2000);
-        });
-    }
-}
+import { graphql, compose } from 'react-apollo';
+import gql from 'graphql-tag';
 
-// https://api.graph.cool/simple/v1/cjrrvm4yh3fj101725hecottw
+// class Services {
+//     static addTodoItem() {
+//         return new Promise(resolve => {
+//             setTimeout(() => {
+//                 resolve({
+//                     name: 'Teste',
+//                     age: 24,
+//                     repository: 'http://github.com/kampgen'
+//                 });
+//             }, 2000);
+//         });
+//     }
+// }
+
+
+// const TodoMutation = gql`
+//   mutation ($text: String!) {
+//     createTodo ( text: $text ) {
+//       text
+//     }
+//   }
+// `;
+
+// export default compose(
+//     graphql(TodoMutation, { name: 'addTodo' })
+// )(Services);

@@ -3,7 +3,7 @@ import { Provider } from 'react-redux'
 import store from './store';
 import App from './App';
 import { ApolloProvider } from 'react-apollo';
-import apolloClient from './services/apollo';
+import apolloClient from './graphql/apollo';
 
 class Root extends Component {
   render() {
